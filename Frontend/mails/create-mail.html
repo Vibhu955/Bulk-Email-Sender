@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mail Sender</title>
+    <style>
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .left,
+        .right {
+            width: 50%;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            /*borders between cells are combined*/
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 5px;
+            text-align: left;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Mail Sender</h2>
+
+    <form id="mailForm" action="submit" method="POST">
+        <button id="btnDash" style="position: absolute; bottom: 2rem;">Back</button>
+
+        <label>Select Template:</label>
+        <select id="templateSelect" required>
+            <option value="">--Select--</option>
+        </select>
+
+        <br><br>
+        <br>
+
+        <label>Select CSV:</label>
+        <input type="file" id="csvFile" accept=".csv" required>
+
+        <br><br>
+        <!-- <input type="file" id="attachments" name="attachments" multiple accept="image/*"> -->
+        <br><br>
+
+        <label>
+            <input type="radio" name="mailOption" value="send" checked>
+            Send Immediately
+        </label>
+
+        <label>
+            <input type="radio" name="mailOption" value="schedule">
+            Schedule Mail
+        </label>
+
+        <br><br>
+
+        <div id="scheduleDiv" class="hidden">
+            <label>Select Date & Time:</label>
+            <input type="datetime-local" id="scheduleAt">
+        </div>
+
+        <br>
+
+        <button type="button" id="previewBtn">Preview</button>
+        <button type="submit">Submit</button>
+    </form>
+
+    <hr>
+
+    <h3>Preview</h3>
+
+    <div class="container">
+        <div class="left">
+            <h4>Users</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                    </tr>
+                </thead>
+                <tbody id="usersTable"></tbody>
+            </table>
+        </div>
+
+        <div class="right">
+            <h4>Template Preview</h4>
+            <div id="templatePreview"></div>
+        </div>
+    </div>
+    <script type="module" src="create-mail.js"></script>
+
+</body>
+
+</html>

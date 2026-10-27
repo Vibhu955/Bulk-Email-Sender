@@ -1,0 +1,54 @@
+emp
+id 	name	did
+1   	A    	10
+2   	B 	20
+3   	C	Null
+
+dept
+did	dept
+10	HR
+20	IT
+30	finance
+
+left - 
+id name did DID
+1	10  10
+2	20 20
+3	NULL null
+right
+id	did DID
+1	10  10
+2	20  20
+3	30  null
+INNER 
+
+id	did DID
+1	10 10	
+2	20 20
+
+FULL
+id	did DID
+1	10  10	
+2	20  20
+3	null NULL
+4	30  NULL
+CROSS
+id	did DID
+1	10 10	
+2	10 20
+3	10 30
+4 	20
+5	20
+6	20
+7	NULL
+8	NULL
+9	NULL
+
+
+information schema, etl , sql engines, innoDB
+
+
+system roles --1. default 2. Mandatory(unrevockable)
+custom roles -- SET ROLE 'app_write'; -- Deactivates other roles
+
+
